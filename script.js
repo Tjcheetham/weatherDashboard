@@ -7,60 +7,74 @@ var searchBtn = $("#button-addon2");
 //array to be populated by previous searches
 var searches = [];
 
+//creating a function to make the searchList (li) innerHTML set to a blank string???
 function renderSearches() {
     searchList.innerHTML = ""
 
+//creating loop of all searches
     for (var i = 0; i<searches.length; i++){
         var search = searches[i];
 
+//creating li element
         var li = $("<li>");
+//grabbing populated array and appending it to each new li element to the searchList
         li.textContent = search;
+        li.setAttribute("data-index", i);
         searchList.appendChild(li);
     }
 }
 
+//creating an initializing function
 function init() {
+
+// Get stored todos from localStorage
+  // Parsing the JSON string to an object
     var storedSearches = JSON.parse(localStorage.getItem("searches"));
 
+// If todos were retrieved from localStorage, update the todos array to it
     if (storedSearches !== null) {
         searches = storedSearches;
     }
 
+//running function
     renderSearches();
 }
 
+// Stringify and set "searches" key in localStorage to searches array
 function storeSearches() {
 localStorage.setItem("searches", JSON.stringify(searches));
 }
 
-
+//adding event listener to search button
 $("#button-addon2").on("click", function (event) {
-    console.log("test");
-    console.log("clicked")
-// };
-// searchBtn.on("click", function (event) {
-//     console.log("clicked");
-//     event.preventDefault();
+    console.log("clicked");
+    event.preventDefault();   
 
-    searchText = searchInput.value.trim();
+//grabbing the searchInput value, trimming, and turing into a variable
+   var searchText = searchInput.val.trim();
 
+//if the searchText is blank, return
     if (searchText === "") {
         return;
     }
 
+//pushing searchText into the array "searches"    
     searches.push(searchText);
-    searchInput.value = "";
 
+//search input is displayed as blank
+    searchInput.val = "";
+
+//running functions
     storeSearches();
     renderSearches();
 });
 
-
-var $city = $(".city")
-var $humidity = $(".humidity")
-var $temp = $(".temp")
-var $wind = $(".wind")
-var $uvi = $(".uvi")
+//variables
+var $city = $(".city");
+var $humidity = $(".humidity");
+var $temp = $(".temp");
+var $wind = $(".wind");
+var $uvi = $(".uvi");
 
 // API Key
   var APIKey = "b617b7ae5bf5ab122b3261fcb3bec20d";
@@ -94,9 +108,4 @@ var $uvi = $(".uvi")
       $(".temp").text("Temperature (F) " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
       $(".uvi").text("UV Index: " + response.uvindex);
-
-      // Log the data in the console as well
-      console.log("Wind Speed: " + response.wind.speed);
-      console.log("Humidity: " + response.main.humidity);
-      console.log("Temperature (F): " + response.main.temp);
-    });
+    })
