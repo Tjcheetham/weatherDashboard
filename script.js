@@ -82,10 +82,14 @@ var $uvi = $(".uvi")
 //       // Log the resulting object
       console.log(response);
 
-
+    //   function myFunction() {
+        var d = new Date();
+        var n = d.toLocaleDateString();
+    //     document.getElementById("demo").innerHTML = n;
+    //   }
       
       // Transfer content to HTML
-      $(".city").html("<h2>" + response.name + "</h2>");
+      $(".city").html("<h2>" + response.name + " (" + n + ")" + "</h2>");
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".temp").text("Temperature (F) " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
