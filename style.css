@@ -1,0 +1,73 @@
+h1 {
+    background-color: rgb(70, 71, 71);;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+h2 {
+    margin: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+form {
+    border-style: solid;
+    height: 270px;
+    padding: 10px;
+    margin: 20px;
+    margin-left: 0px;
+}
+
+.fiveDay {
+    margin:20px;
+    margin-left: 0px;
+    margin-top:0px;
+}
+
+.left {
+    background-color: rgb(247, 247, 247);
+    padding: 20px;
+    padding-top: 0px;
+    height: 500px;
+}
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 1px;
+}
+
+.btn:hover {
+    background-color: dodgerblue;
+    outline: solid 3px rgb(145, 200, 255);
+  }
+
+  .humidity {
+    padding: 10px;
+  }
+
+  .temp{
+    padding: 10px;
+
+  }
+
+  .wind{
+    padding: 10px;
+
+  }
+
+  .uvi{
+    padding: 10px;
+
+  }
