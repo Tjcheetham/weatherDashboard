@@ -18,18 +18,18 @@ h4 {
     margin-bottom: 10px;
 }
 
-form {
+f orm {
     border-style: solid;
     height: 270px;
     padding: 10px;
     margin: 20px;
+    margin-bottom: 0px;
     margin-left: 0px;
 }
 
 .fiveDay {
-    margin:20px;
-    margin-left: 0px;
-    margin-top:0px;
+    margin-bottom:0px;
+   
 }
 
 .left {
@@ -70,4 +70,15 @@ form {
   .uvi{
     padding: 10px;
 
+  }
+
+  .forecast {
+      background-color: dodgerblue;
+      padding: 10px;
+      margin: 10px;
+      margin-top: 0px;
+  }
+
+  .dayPlus1 {
+      margin-left: 20px;
   }

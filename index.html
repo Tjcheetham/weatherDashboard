@@ -20,9 +20,9 @@
     <div class="col-md-4 left">
       <h4>Search for a City:</h4>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9"><form id="my-search-form" method="POST">
           <div class="input-group mb-3 search-form">
-            <input type="text" class="form-control search-text" placeholder="" aria-label="Recipient's username"
+            <input type="text" class="form-control" id="search-text" placeholder="" aria-label="Recipient's username"
               aria-describedby="button-addon2">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
@@ -32,6 +32,7 @@
           <div class="row">
             <ul id="search-list"></ul>
           </div>
+        </form>
         </div>
       </div>
     </div>
@@ -46,10 +47,40 @@
             <div class="uvi">UV Index:</div>
           </form>
           <div class="row">
-            <div class="col-md-12">
-              <div class="fiveDay">
+            <div class="col-md-12 fiveDay">
                 <h2>5-Day Forecast:</h2>
-              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 dayPlus1 forecast">
+              <div class="dayPlus1-date">10/28/19</div>
+              <div class="dayPlus1-icon"></div>
+              <div class="dayPlus1-temp"></div>
+              <div class="dayPlus1-humidity"></div>
+            </div>
+            <div class="col-md-2 dayPlus2 forecast">
+              <div class="dayPlus2-date">10/28/19</div>
+              <div class="dayPlus2-icon"></div>
+              <div class="dayPlus2-temp"></div>
+              <div class="dayPlus2-humidity"></div>
+            </div>
+            <div class="col-md-2 dayPlus3 forecast">
+              <div class="dayPlus3-date">10/28/19</div>
+              <div class="dayPlus3-icon"></div>
+              <div class="dayPlus3-temp"></div>
+              <div class="dayPlus3-humidity"></div>
+            </div>
+            <div class="col-md-2 dayPlus4 forecast">
+              <div class="dayPlus4-date">10/28/19</div>
+              <div class="dayPlus4-icon"></div>
+              <div class="dayPlus4-temp"></div>
+              <div class="dayPlus4-humidity"></div>
+            </div>
+            <div class="col-md-2 dayPlus5 forecast">
+              <div class="dayPlus5-date">10/28/19</div>
+              <div class="dayPlus5-icon"></div>
+              <div class="dayPlus5-temp"></div>
+              <div class="dayPlus5-humidity"></div>
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 // variables
 var searchList = $("#search-list");
-var searchInput = $(".search-text");
+var searchInput = $("#search-text");
 var searchForm = $(".search-form");
 var searchBtn = $("#button-addon2");
+var searchText = '';
 
 //array to be populated by previous searches
 var searches = [];
@@ -18,69 +19,25 @@ function renderSearches() {
 //creating li element
         var li = $("<li>");
 //grabbing populated array and appending it to each new li element to the searchList
-        li.textContent = search;
-        li.setAttribute("data-index", i);
-        searchList.appendChild(li);
+        li.text(search);
+        li.attr("data-index", i);
+        searchList.append(li);
     }
-}
-
-//creating an initializing function
-function init() {
-
-// Get stored todos from localStorage
-  // Parsing the JSON string to an object
-    var storedSearches = JSON.parse(localStorage.getItem("searches"));
-
-// If todos were retrieved from localStorage, update the todos array to it
-    if (storedSearches !== null) {
-        searches = storedSearches;
-    }
-
-//running function
-    renderSearches();
-}
-
-// Stringify and set "searches" key in localStorage to searches array
-function storeSearches() {
-localStorage.setItem("searches", JSON.stringify(searches));
-}
-
-//adding event listener to search button
-$("#button-addon2").on("click", function (event) {
-    console.log("clicked");
-    event.preventDefault();   
-
-//grabbing the searchInput value, trimming, and turing into a variable
-   var searchText = searchInput.val.trim();
-
-//if the searchText is blank, return
-    if (searchText === "") {
-        return;
-    }
-
-//pushing searchText into the array "searches"    
-    searches.push(searchText);
-
-//search input is displayed as blank
-    searchInput.val = "";
-
-//running functions
-    storeSearches();
-    renderSearches();
-});
-
-//variables
-var $city = $(".city");
+    var $city = $(".city");
 var $humidity = $(".humidity");
 var $temp = $(".temp");
 var $wind = $(".wind");
 var $uvi = $(".uvi");
 
+if (searchText == ""){
+    searchText="Scottsdale";
+}
+
 // API Key
   var APIKey = "b617b7ae5bf5ab122b3261fcb3bec20d";
-
+    console.log(searchText)
   // Here we are building the URL we need to query the database
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + "Atlanta" + "&units=imperial&appid=" + APIKey;
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchText + "&units=imperial&appid=" + APIKey;
 
 //   // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -108,4 +65,54 @@ var $uvi = $(".uvi");
       $(".temp").text("Temperature (F) " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
       $(".uvi").text("UV Index: " + response.uvindex);
+      searchInput.val("");
     })
+
+}
+
+//creating an initializing function
+function init() {
+
+// Get stored todos from localStorage
+  // Parsing the JSON string to an object
+    var storedSearches = JSON.parse(localStorage.getItem("searches"));
+
+// If todos were retrieved from localStorage, update the todos array to it
+    if (storedSearches !== null) {
+        searches = storedSearches;
+    }
+
+//running function
+    renderSearches();
+}
+
+// Stringify and set "searches" key in localStorage to searches array
+function storeSearches() {
+localStorage.setItem("searches", JSON.stringify(searches));
+}
+
+//adding event listener to search button
+$("#my-search-form").on("submit", function (event) {
+    console.log("clicked");
+    event.preventDefault();   
+
+//grabbing the searchInput value, trimming, and turing into a variable
+   searchText = searchInput.val().trim();
+
+//if the searchText is blank, return
+    if (searchText === "") {
+        return;
+    }
+
+//pushing searchText into the array "searches"    
+    searches.push(searchText);
+
+//search input is displayed as blank
+//    searchInput.val = "";
+
+//running functions
+    storeSearches();
+    renderSearches();
+});
+renderSearches();
+//variables

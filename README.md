@@ -1,14 +1,14 @@
 # weatherDashboard
 
 ### Description
-I created a day planner so I can add important events in a visual application so I can manage my time effectively.
+As a traveler I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
 
 ### Technologies-Libraries
-JavaScript - [JQuery](https://code.jquery.com/jquery-3.3.1.slim.min.js) - [Bootstrap](https://getbootstrap.com/) - CSS - HTML
+AJAX - JavaScript - [JQuery](https://code.jquery.com/jquery-3.3.1.slim.min.js) - [Bootstrap](https://getbootstrap.com/) - CSS - HTML
 
 ### Screenshots
 
-![Screenshot1](assets/images/2019-10-24(1).png)
+![Screenshot1]()
 
 ![Screenshot2](assets/images/2019-10-24(2).png)
 
