@@ -4,6 +4,7 @@ var searchInput = $("#search-text");
 var searchForm = $(".search-form");
 var searchBtn = $("#button-addon2");
 var searchText = '';
+var weatherIcon = $("#weatherIcon");
 
 //array to be populated by previous searches
 var searches = [];
@@ -21,7 +22,7 @@ function renderSearches() {
 //grabbing populated array and appending it to each new li element to the searchList
         li.text(search);
         li.attr("data-index", i);
-        searchList.append(li);
+        searchList.prepend(li);
     }
     var $city = $(".city");
 var $humidity = $(".humidity");
@@ -56,7 +57,7 @@ if (searchText == ""){
     //   function myFunction() {
         var d = new Date();
         var n = d.toLocaleDateString();
-    //     document.getElementById("demo").innerHTML = n;
+        var wi = weatherIcon.attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
     //   }
       
       // Transfer content to HTML
@@ -64,7 +65,7 @@ if (searchText == ""){
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".temp").text("Temperature (F) " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
-      $(".uvi").text("UV Index: " + response.uvindex);
+      $(".uvi").text("UV Index: " + response.value);
       searchInput.val("");
     })
 
@@ -94,7 +95,8 @@ localStorage.setItem("searches", JSON.stringify(searches));
 //adding event listener to search button
 $("#my-search-form").on("submit", function (event) {
     console.log("clicked");
-    event.preventDefault();   
+    event.preventDefault();
+    searchList.empty();   
 
 //grabbing the searchInput value, trimming, and turing into a variable
    searchText = searchInput.val().trim();

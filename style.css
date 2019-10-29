@@ -18,7 +18,7 @@ h4 {
     margin-bottom: 10px;
 }
 
-f orm {
+.border {
     border-style: solid;
     height: 270px;
     padding: 10px;
@@ -37,6 +37,8 @@ f orm {
     padding: 20px;
     padding-top: 0px;
     height: 500px;
+    margin-left: 5px;
+    margin-right: -5px;
 }
 
 .btn {
@@ -82,3 +84,22 @@ f orm {
   .dayPlus1 {
       margin-left: 20px;
   }
+
+  #weatherIcon {
+      padding-top: 10px;
+      padding-left: 0px;
+      margin-left: 0px;
+  }
+
+  li {
+      padding: 15px;
+      padding-left: 20px;
+      padding-right: 300px;
+      text-transform: capitalize;
+      border-style:solid;
+      border-color: lightgray;
+      margin-left: -25px;
+      font-size: 17px;
+      background-color: white;
+  }
+
